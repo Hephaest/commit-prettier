@@ -52,7 +52,7 @@ if [[ $commit_msg =~ $emoji_regex ]]; then
     echo "Skipped - This commit contains Emoji already."
     exit 0
 else
-    modified_commit_msg=$(update_commit_msg $commit_msg)
+    modified_commit_msg=$(update_commit_msg "$commit_msg")
     # Write the modified commit message back to the file
-    echo $modified_commit_msg > $commit_msg_file
+    echo "$modified_commit_msg" > $commit_msg_file
 fi
