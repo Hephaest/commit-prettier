@@ -43,12 +43,12 @@ update_commit_msg() {
   esac
 }
 
-emoji_regex=$'^(✨|🐞|♻️|🧪|🧹|📄|🌈|👷|⚡️|🏗️|⏪️|💬)'
+emoji_regex=$'^(.+)\s\w+(.*)?:.*$'
 commit_msg_file=$1
 commit_msg=$(cat "$commit_msg_file")
 
 # Check if the commit message contains an emoji
-if [[ $commit_msg =~ $emoji_regex ]]; then
+if echo $commit_msg | grep -Eq $emoji_regex; then
     echo "Skipped - This commit contains Emoji already."
     exit 0
 else
