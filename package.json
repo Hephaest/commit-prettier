@@ -1,6 +1,6 @@
 {
   "name": "commit-prettier",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Format git commit messages with creative emojis",
   "bin": {
     "commit-prettier": "./commit-prettier.sh"
