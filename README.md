@@ -3,7 +3,7 @@
   <img width="600" alt="commit-prettier" src="https://github.com/Hephaest/commit-prettier/assets/37981444/7e70db6b-d064-4ced-9e9c-567b77855537">
 </p>
 
-`commit-prettier` is an innovative tool that enhances your commit messages by appending an emoji related to the type of commit you make. It seamlessly integrates with `commitlint`, supporting all standard commit types including:
+`commit-prettier` is a light-weight CLI that enhances your commit messages by appending an emoji related to the type of commit you make. It seamlessly integrates with `commitlint`, supporting all standard commit types including:
 | Type  | Emoji |
 | ------------- | ------------- |
 | build  | 🏗️  |
@@ -11,7 +11,7 @@
 | ci  | 👷  |
 | docs  | 📄  |
 | feat  | ✨  |
-| fix  | 🐞  |
+| fix  | 🐛  |
 | perf  | ⚡️  |
 | refactor  | ♻️  |
 | revert  | ⏪️  |
@@ -20,6 +20,7 @@
 
 ## Features
 - **Emoji Prefixes:** Automatically adds an emoji as a prefix to your commit messages after they pass commitlint checks, making your commit history more expressive and easier to navigate.
+- **Branch Name Prefixes:** Automatically adds branch name into commit scope if there is no scope provided (default is off).
 - **Commitlint Compatibility:** Fully compatible with all commitlint types, ensuring your commit messages are both fun and professional.
 - **Easy Integration:** Works with existing git hooks and can be integrated smoothly into your workflow.
 
@@ -45,7 +46,7 @@ To integrate `commit-prettier` with Husky (version >= 8.0.0), follow these steps
 npm run commit-prettier $1
 ```
 
-**NOTE:** 
+**NOTE:**
 Make sure to make the script executable by running:
 ```bash
 chmod +x .husky/commit-msg
@@ -54,8 +55,18 @@ chmod +x .husky/commit-msg
 Once everything is set up, you can start committing with:
 ```bash
 git commit -m "feat(homepage): achieve UI revamp 2.0"
+// Output: ✨ feat(homepage): achieve UI revamp 2.0
 ```
-This will trigger the commit message hook, and after passing the commitlint check, commit-prettier will automatically prepend an appropriate emoji, resulting in:
+If you need to work with a ticket system and have enough of typing this number, you can enable the `--branch` option in your `package.json` file:
+```json
+{
+  "scripts": {
+    "commit-prettier": "commit-prettier --branch",
+  }
+}
+```
+Then `commit-prettier` will do this for you! 💅
 ```bash
-✨ feat(homepage): achieve UI revamp 2.0
+git commit -m "style: add confetti animation on the login page"
+// Output: 🌈 style(JA-1234): add confetti animation on the login page
 ```
