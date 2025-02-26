@@ -2,6 +2,10 @@
   "name": "commit-prettier",
   "version": "1.1.0",
   "description": "Format git commit messages with creative emojis",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hephaest/commit-prettier"
+  },
   "bin": {
     "commit-prettier": "./commit-prettier.sh"
   },
