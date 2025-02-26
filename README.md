@@ -35,7 +35,7 @@ or if you prefer using Yarn:
 yarn add --dev commit-prettier
 ```
 ### Setup
-To integrate `commit-prettier` with Husky (version >= 8.0.0), follow these steps:
+To integrate `commit-prettier` with Husky (version >= 6.0.0), follow these steps:
 
 1. First, ensure you have Husky installed. If not, please follow the [instructions](https://www.npmjs.com/package/husky).
 2. Create a `commit-msg` file in the `.husky` directory with the following content:
