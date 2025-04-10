@@ -99,10 +99,18 @@ modify_save_commit() {
 }
 
 scope_exist="false"
-# Remove everything after the first colon, leaving the first field.
-commit_type=${commit_msg%%:*}
-# Remove everything before the first colon, leaving the rest of the fields.
-commit_subject=${commit_msg#*:}
+
+# Check if the message contains a colon
+if [[ "$commit_msg" == *:* ]]; then
+  # Remove everything after the first colon, leaving the first field.
+  commit_type=${commit_msg%%:*}
+  # Remove everything before the first colon, leaving the rest of the fields.
+  commit_subject=${commit_msg#*:}
+else
+  # If no colon, use the entire message as the type
+  commit_type="feat"
+  commit_subject=" $commit_msg"
+fi
 
 if echo $commit_msg | grep -Eq $scope_regex; then
     scope_exist="true"

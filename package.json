@@ -1,6 +1,6 @@
 {
   "name": "commit-prettier",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Format git commit messages with creative emojis",
   "repository": {
     "type": "git",

@@ -127,3 +127,10 @@ Then `commit-prettier` will do this for you! 💅
 git commit -m "style: add confetti animation on the login page"
 // Output: 🌈 style(JA-1234): add confetti animation on the login page
 ```
+
+If your team does not require members to follow conventional commits, but you still want formatted commits, this plugin is what you need.
+```bash
+git commit -m "Achieve UI revamp 2.0"
+// Output: ✨ feat(homepage): Achieve UI revamp 2.0
+```
+
